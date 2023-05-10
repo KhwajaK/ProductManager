@@ -18,15 +18,12 @@ const ProductList = (props) => {
     
     return (
     <div className='container' >
-        <h1>ProductList</h1>
+        <h1>All Products</h1>
         {
-            product.map((product, i)=> {
+            product.map((item, i)=> {
                 return(
                     <div key={i}>
-                        <p>{product.title}</p>
-                        <p>${product.price}</p>
-                        <p>{product.description}</p>
-                        <Link to={`/products/${product._id}`}>{product.title}'s Page!</Link>
+                        <Link to={`/products/${item._id}`}>{item.title}'s Page!</Link>
                     </div>
                 )
             })

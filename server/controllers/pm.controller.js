@@ -15,17 +15,11 @@ module.exports = {
                         res.status(400).json({msg: "something went wrong", error:err})
         })
 },
-        getOneProduct: (req, res)=> {
+        getOneProduct: (req, res) => {
                 Product.findOne({_id:req.params.id})
-                .then((oneProduct) => {
-                        res.json({
-                        product: oneProduct
-                        })
-                })
-                .catch((err)=> {
-                        res.status(400).json({msg: "something went wrong getting one product", error:err})
-                })
-},
+                        .then(product => res.json(product))
+                        .catch(err => res.json(err))
+        }
 //     updateProduct: (req, res) => {
 //         Product.findByIdAndUpdate({_id: req.params.id},req.body,{new:true, runValidators: true})
 //         .then((updateProduct)=>{

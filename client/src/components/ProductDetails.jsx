@@ -3,23 +3,23 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const Details = (props) => {
-    const [product, setProduct] = useState({})
+    const [item, setItem] = useState({})
     const {id} = useParams();
     useEffect(() => {
         axios.get("http://localhost:8000/api/products/" + id)
-            .then((res) => {
+            .then(res => {
                 console.log(res.data);
-                setProduct(res.data)
+                setItem(res.data)
             })
             .catch(err => console.log(err))
     }, []);
     return (
         <div>
-            <p>Title: {product.title}</p>
-            <p>Price: ${product.price}</p>
-            <p>Description: ${product.description}</p>
+            <h2>Title: {item.title}</h2>
+            <p>Price: $ {item.price}</p>
+            <p>Description: {item.description}</p>
         </div>
     )
 }
 
-export default Details
+export default Details;
