@@ -6,12 +6,15 @@ import ProductList from '../components/ProductList';
 
 const Main = () => {
     const [product, setProduct] = useState([]);
+    const removeProduct = itemId => {
+        setProduct(product.filter(item => item._id != itemId))
+    }
 
     return (
     <div>
         <ProductForm product={product} setProduct={setProduct} />
         <hr />
-        <ProductList product={product} setProduct={setProduct} />
+        <ProductList product={product} setProduct={setProduct} removeProduct={removeProduct}/>
     </div>
     )
 }
