@@ -28,8 +28,7 @@ const ProductList = (props) => {
     <div className='container' >
         <h2>All Products</h2>
         {
-            product.map((item, i)=> {
-                return(
+            product.map((item, i)=> (
                     <div className='m-3 p-2 bg-success rounded' key={i}>
                         <h5>{item.title}</h5>
                         <h5>{item.price}</h5>
@@ -40,7 +39,7 @@ const ProductList = (props) => {
                         <button onClick={(e) => deleteItem(item._id)} className="btn btn-dark">Delete</button>
                     </div>
                 )
-            })
+            )
         }
     </div>
     )

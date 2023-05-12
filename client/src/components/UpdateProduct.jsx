@@ -11,6 +11,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products/' + id)
+// can also do string interpolation (`http://localhost:8000/api/products/${id}`)
         .then(res => {
             setTitle(res.data.title);
             setPrice(res.data.price);
